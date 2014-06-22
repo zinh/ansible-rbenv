@@ -1,0 +1,3 @@
+[web]
+nitrous01 ansible_ssh_host=apse1.nitrousbox.com ansible_ssh_port=24722 ansible_ssh_user=action
+nitrous02 ansible_ssh_host=apse1.nitrousbox.com ansible_ssh_port=24756 ansible_ssh_user=action

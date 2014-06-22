@@ -1,0 +1,7 @@
+- name: Check if git is installed
+  command: git --version
+  register: git_check
+  ignore_errors: True
+- name: Install git if not installed
+  yum: name=git state=present
+  when: git_check|failed

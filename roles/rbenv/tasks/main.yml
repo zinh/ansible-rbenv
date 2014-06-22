@@ -1,0 +1,14 @@
+- name: Clone rbenv project
+  get_url: url=https://github.com/sstephenson/rbenv/archive/master.zip dest={{ansible_env.HOME}}
+- name: Extract rbenv
+  command: unzip master
+- name: Change dir name rbenv-master to .rbenv
+  command: mv rbenv-master .rbenv
+- name: Remove zip file
+  command: rm master
+- name: Create plugin dir
+  file: path=~/.rbenv/plugins/ state=directory
+- name: Install ruby build
+  git: repo=ssh://git@github.com:sstephenson/ruby-build.git dest=~/.rbenv/plugins/
+- name: Install rbenv gemset
+  git: repo=git://github.com:jf/rbenv-gemset.git dest=~/.rbenv/plugins/rbenv-gemset
